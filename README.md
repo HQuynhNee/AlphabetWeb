@@ -24,4 +24,5 @@ The **"Bé học chữ cái"** project is an interactive educational software de
 ## Target Audience
 - Children aged 3-6 who are beginning to learn the alphabet.
 - Parents and teachers looking to support early childhood education.
-![Project Banner](DemoImages/Index.png) 
+## Demo
+![Project Banner](DemoImages/Demo.png) 
