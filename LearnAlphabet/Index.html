@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <button class="menu-btn">
+        <img src="Images/menu.png" alt="Menu">
+    </button>
+    <button class="user-btn" id="userBtn">
+        <img src="Images/student.png" alt="User">
+    </button>
+
+    <div id="loginRegister">
+        <!-- Form Đăng Nhập -->
+        <div class="login-container" id="loginContainer">
+            <button class="close-login" id="closeLogin">&times;</button>
+            <div class="login-form">
+                <h1>Log In</h1>
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button class="login-button">Login</button>
+                <p>Don't Have An Account? <a href="#" id="showRegister">Register</a></p>
+            </div>
+            <div class="image-container">
+                <img src="Images/jellyfish.png" alt="Secure Login">
+            </div>   
+        </div>
+
+        <!-- Form Đăng Ký -->
+        <div class="register-container" id="registerContainer">
+            <button class="close-login" id="closeRegister">&times;</button>
+            <div class="register-form">
+                <h1>Register</h1>
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>                
+                <button class="register-button">Register</button>
+                <p>Already have an account? <a href="#" id="showLogin">Log In</a></p>
+            </div>
+            <div class="image-container">
+                <img src="Images/kitty.png" alt="Secure Register">
+            </div>   
+        </div>
+    </div>
+    
+    <div class="container-wrapper">
+        <div class="container_green">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+            </style>
+            <svg width="400" height="200">
+                <defs>
+                    <path id="curvePath" d="M 50 160 Q 200 100 350 160" fill="transparent"/>
+                </defs>
+                <text font-size="60" font-weight="bold" fill="Yellow">
+                    <textPath href="#curvePath" startOffset="50%" text-anchor="middle">ALPHABET</textPath>
+                </text>
+            </svg>
+            
+            <div class="subtitle">
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+                    @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
+                </style>
+                <span class="letter-a">A</span>
+                <span class="letter-b">B</span>
+                <span class="letter-c">C</span>
+                <span class="letter-d">Kids</span>
+            </div>
+            
+            <div class="image-placeholder"></div>
+            <div class="image-placeholderline"></div>
+            
+            <button class="start-btn" id="startBtn">BẮT ĐẦU 
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+                </style>
+            </button>
+            
+            <div class="egg-container" id="eggContainer">
+                <button class="close-btn" id="closeBtn">✖</button>
+                <button class="arrow left" id="prevBtn">
+                    <img src="Images/left-arrow.png" alt="Mũi tên trái">
+                </button>
+                
+                <div class="egg-wrapper">
+                    <div class="egg-box">
+                        <img src="Images/Egg1.png" class="egg" data-index="1">
+                        <img src="Images/Egg2.png" class="egg" data-index="2">
+                        <img src="Images/Egg3.png" class="egg" data-index="3">
+                        <img src="Images/Egg4.png" class="egg" data-index="4">
+                        <img src="Images/Egg5.png" class="egg" data-index="5">
+                        <img src="Images/Egg6.png" class="egg" data-index="6">
+                        <img src="Images/egg7.png" class="egg" data-index="7">
+                        <img src="Images/Egg8.png" class="egg" data-index="8">
+                        <img src="Images/Egg9.png" class="egg" data-index="9">
+                        <img src="Images/Egg10.png" class="egg" data-index="10">
+                        <img src="Images/Egg11.png" class="egg" data-index="11">
+                        <img src="Images/Egg12.png" class="egg" data-index="12">
+                        <img src="Images/Egg13.png" class="egg" data-index="13">
+                        <img src="Images/Egg14.png" class="egg" data-index="14">
+                        <img src="Images/Egg15.png" class="egg" data-index="15">
+                        <img src="Images/Egg16.png" class="egg" data-index="16">
+                        <img src="Images/Egg17.png" class="egg" data-index="17">
+                        <img src="Images/Egg18.png" class="egg" data-index="18">
+                        <img src="Images/Egg19.png" class="egg" data-index="19">
+                        <img src="Images/Egg20.png" class="egg" data-index="20">
+                        <img src="Images/Egg21.png" class="egg" data-index="21">
+                        <img src="Images/Egg22.png" class="egg" data-index="22">
+                        <!-- <img src="Images/Egg23.png" class="egg" data-index="23">
+                        <img src="Images/Egg24.png" class="egg" data-index="24"> -->
+                    </div>
+                </div>
+                <button class="arrow right" id="nextBtn">
+                    <img src="Images/Right-arrow.png" alt="Mũi tên phải">
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <button class="shop-btn">
+        <img src="Images/cart.png" alt="Cart">
+    </button>
+    <button class="info-web-btn">
+        <img src="Images/info.png" alt="Information">
+    </button>
+    <div class="information-wrapper">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');</style>
+        <div class="content">
+            <h2>Introduction</h2>
+            <p2>
+                In today's fast-growing technology era, integrating modern teaching methods into children's education is essential. "Learning Alphabets" is an interactive desktop application designed to help children explore the Vietnamese alphabet in a fun and engaging way.<br><br>
+                Developed using the Waterfall model, the project ensures a structured approach from analysis to testing. The app features a colorful interface where children interact with mystery eggs that reveal letters and illustrated words, making learning more enjoyable.<br><br>
+                By blending education with technology, "Learning Alphabets" enhances cognitive skills, curiosity, and engagement, offering a fun and effective way to master the alphabet!<br><br>
+            </p2>
+        </div>
+        <div class="image-thanks-container">
+            <img src="Images/thank-you.png" alt="Thanks">
+        </div>   
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

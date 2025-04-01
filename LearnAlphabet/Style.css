@@ -1,0 +1,529 @@
+/* Thiết lập nền chính */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('Images/Sky.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Wrapper tổng thể */
+.container-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.egg-container.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+.container_green.open {
+    transform: rotateY(0);
+}
+/* Khung chính */
+.container_green {
+    position: absolute;
+    width: 400px;
+    height: 750px;
+    background: linear-gradient(to right, #99CCFF, #FF9999);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Văn bản tiêu đề */
+.subtitle {
+    font-size: 100px;
+    letter-spacing: -10px;
+    font-family: "DynaPuff", serif;
+}
+
+.letter-a { color: #3366CC; }
+.letter-b { color: #006600; }
+.letter-c { color: #FFCC33; }
+.letter-d { font-size: 50px; letter-spacing: -3px; color: #FF6666; }
+
+/* Ảnh placeholder */
+.image-placeholder {
+    width: 300px;
+    height: 300px;
+    background: url('Images/dog-removebg-preview.png') no-repeat center;
+    background-size: cover;
+    margin: 20px 0;
+}
+
+/* Nút bắt đầu */
+.start-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 30px 60px;
+    background-color: #f55f5f;
+    color: white;
+    font-size: 30px;
+    border: 2px solid #f55f5f;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "VT323", serif;
+    box-shadow: 0px 0px 20px 10px rgba(255, 180, 226, 0.8);
+    position: relative;
+    overflow: hidden;
+    z-index: 700;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.start-btn:hover {
+    background: transparent;
+    color: #f55f5f;
+    border-color: white;
+    box-shadow: 0 0 15px rgb(255, 180, 226);
+}
+
+/* Diamond Shape Stars */
+.stars {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px white;
+    opacity: 1;
+    z-index: 9999; /* Đảm bảo ngôi sao nằm trên tất cả các phần tử */
+    pointer-events: none; /* Đảm bảo không ảnh hưởng đến các thao tác click */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-in-out;
+}
+
+.stars.large {
+    width: 10px;
+    height: 10px;
+}
+
+/* Nút menu */
+.menu-btn, .user-btn, .shop-btn, .info-web-btn {
+    position: fixed;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.user-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.username-display {
+    position: fixed;
+    z-index: 1000;
+    right: 75px; /* Đặt username bên trái userBtn */
+    top: 30px;
+    background-color: #FFCCCC;
+    font-family: "Sriracha", cursive;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #000000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.shop-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.info-web-btn img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.menu-btn { top: 20px; left: 20px; }
+.user-btn { top: 20px; right: 20px; }
+.shop-btn { bottom: 20px; left: 20px; }
+.info-web-btn { bottom: 20px; right: 20px; }
+
+/* 🥚 Hiển thị hộp trứng */
+.egg-container {
+    position: fixed;
+    top: -100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 600px;
+    background: url('Images/frame.jpg') no-repeat center;
+    background-size: cover;
+    box-shadow: 0px 0px 20px 10px rgba(250, 150, 212, 0.8);
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    transition: top 0.5s ease-in-out;
+    z-index: 800;
+}
+
+/* Khi hộp trứng mở */
+.egg-container.active {
+    top: 12%;
+}
+
+/* Hộp chứa trứng */
+.egg-wrapper {
+    display: flex;
+    transition: transform 0.5s ease; /* Hiệu ứng mượt mà */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.egg-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 100px;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+
+.egg {
+    
+    width: 150px;
+    height: auto ;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    object-fit: contain; /* Đảm bảo ảnh không bị biến dạng */
+    position: relative; /* Đặt vị trí tuyệt đối để không di chuyển */
+}
+
+.egg.broken {
+    width: 150px; /* Kích thước trứng vỡ nhỏ lại */
+    height: 140px;
+    opacity: 1;
+    
+}
+
+.egg[style*="display: block"] {
+    opacity: 1;
+}
+
+
+/* 🔽 Cập nhật nút mũi tên bên trong `.egg-container.active` */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent; /* Bỏ màu nền để hiển thị ảnh mũi tên rõ ràng */
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mũi tên trái */
+.arrow.left {
+    left: 25%;
+    top: 30%;
+}
+
+/* Mũi tên phải */
+.arrow.right {
+    right: 25%;
+    top: 30%;
+}
+
+.arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.arrow:hover img {
+    transform: scale(1.1); /* Phóng to khi hover */
+}
+
+
+/* Nút đóng */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-btn:hover {
+    background: darkred;
+}
+
+
+/* Đặt z-index thấp hơn cho container_green */
+.container_green {
+    z-index: 1000;
+}
+
+.close-login {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* đã tách
+/* .detail-container span {
+    font-size: 80px !important;
+    font-weight: bold;
+    color: red !important;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5) !important;
+    text-decoration: underline !important;
+} */
+span.highlight {
+    text-decoration: underline !important;
+    font-size: 80px;
+    font-weight: bold;
+    color: red;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+
+#loginContainer, #registerContainer {
+    position: fixed;
+    display: flex;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 600px;
+    background-color: rgb(251, 167, 200);
+    box-shadow: 0 4px 10px rgba(210, 137, 194, 0.3);
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px;
+    transition: top 0.5s ease-in-out;
+    z-index: 2000;
+    align-items: center;
+}
+
+#loginContainer.active, #registerContainer.active {
+    top: 10%;
+}
+.login-form {
+    flex: 1;
+    margin-top: -50px;
+    padding: 30px;
+    width: 500px;
+}
+
+.login-form h1 {
+    font-family: "Sriracha", cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    font-family: "Sriracha", cursive;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+p {
+    font-family: "Sriracha", cursive;
+    font-size: 1rem;
+}
+a {
+    font-family: "Sriracha", cursive;
+    font-size: 1rem;
+    color: #e6326e;
+}
+.login-button {
+    font-family: "Sriracha", cursive;
+    width: 535px;
+    padding: 15px;
+    background-color: #ee2a65;
+    color: rgb(246, 243, 243);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.login-button:hover {
+    box-shadow: 0 0 5px rgb(253, 253, 253), 0 0 25px rgb(255, 255, 255);
+}
+
+.image-container {
+    flex: 1; /* Chia đều không gian với form */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px; /* Đẩy hình lên trên một chút */
+}
+
+.image-container img {
+    width: 80%; /* Điều chỉnh size theo mong muốn */
+    max-width: 400px; /* Giới hạn tối đa */
+    height: auto;
+}
+.register-form {
+    flex: 1;
+    margin-top: -50px;
+    padding: 30px;
+    width: 500px;
+}
+
+.register-form h1 {
+    font-family: "Sriracha", cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.register-button {
+    font-family: "Sriracha", cursive;
+    width: 535px;
+    padding: 15px;
+    background-color: #ee2a65;
+    color: rgb(246, 243, 243);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.register-form input {
+    font-family: "Sriracha", cursive;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.register-form p {
+    font-family: "Sriracha", cursive;
+    font-size: 1rem;
+}
+
+.register-form a {
+    font-family: "Sriracha", cursive;
+    font-size: 1rem;
+    color: #e6326e;
+}
+
+.register-form .login-button {
+    font-family: "Sriracha", cursive;
+    width: 535px;
+    padding: 15px;
+    background-color: #ee2a65;
+    color: rgb(246, 243, 243);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px #ffffff;
+}
+
+.register-form .login-button:hover {
+    box-shadow: 0 0 5px rgb(253, 253, 253), 0 0 25px rgb(255, 255, 255);
+}
+
+
+#rightContent {
+    opacity: 0; /* Ban đầu opacity bằng 0 để ẩn đi */
+    transition: opacity 1s ease-in-out; /* Tạo hiệu ứng mờ dần */
+}
+/* Wrapper thông tin */
+.information-wrapper {
+    position: fixed;
+    bottom: -100%; /* Bắt đầu từ ngoài màn hình phía dưới */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa theo chiều ngang */
+    width: 80%;
+    height: 600px;
+    background-color: rgb(97, 221, 223);
+    box-shadow: 0px 0px 20px 10px rgba(247, 246, 247, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    transition: bottom 0.5s ease-in-out; /* Hiệu ứng trượt lên */
+    z-index: 2000;
+    display: flex;
+    flex-direction: column; /* Xếp nội dung theo chiều dọc */
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+}
+
+/* Khi được kích hoạt, trượt từ dưới lên */
+.information-wrapper.active {
+    bottom: 10%;
+}
+
+/* Nội dung trong wrapper */
+h2 {
+    text-align: center; /* Căn giữa tiêu đề */
+    font-family: "Comic Neue", cursive;
+    font-size: 50px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; /* Giới hạn chiều rộng tiêu đề */
+}
+
+p2 {
+    font-family: "Comic Neue", cursive;
+    font-size: 25px;
+    text-align: justify; /* Căn đều hai bên */
+    margin: 0 auto;
+    max-width: 90%; /* Giới hạn chiều rộng, căn giữa */
+    word-spacing: 2px; /* Điều chỉnh khoảng cách giữa các từ */
+    hyphens: auto; /* Hỗ trợ xuống dòng tự nhiên nếu cần */
+}
+
+.image-thanks-container {
+    margin-top: 20px; /* Khoảng cách giữa chữ và ảnh */
+    text-align: center; /* Căn giữa ảnh */
+}
+
+.image-thanks-container img {
+    width: 150px; /* Điều chỉnh kích thước ảnh */
+    display: inline-block; /* Đảm bảo ảnh không bị kéo dài theo toàn bộ dòng */
+}
